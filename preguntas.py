@@ -15,39 +15,49 @@ tbl2 = pd.read_csv("tbl2.tsv", sep="\t")
 
 
 def pregunta_01():
-    return tbl0.shape[0]
+    row=tbl0.shape[0]
+    return row
 
 
 def pregunta_02():
-    return tbl0.shape[1]
+    columnas=tbl0.shape[1]
+    return columnas
 
 
 def pregunta_03():
-    return tbl0['_c1'].value_counts().sort_index()
+    frecuencia_c1=tbl0['_c1'].value_counts().sort_index()
+    return frecuencia_c1
 
 
 def pregunta_04():
-    return tbl0.groupby('_c1')['_c2'].mean()
+    columnas_c1_c2_pro=tbl0.groupby('_c1')['_c2'].mean()
+    return columnas_c1_c2_pro
 
 
 def pregunta_05():
-    return tbl0.groupby('_c1')['_c2'].max()
+    columnas_c1_c2_max=tbl0.groupby('_c1')['_c2'].max()
+    return columnas_c1_c2_max
 
 
 def pregunta_06():
-    return tbl1['_c4'].str.upper().unique()
+    columnas_c4_upper=tbl1['_c4'].str.upper().unique()
+    return sorted(columnas_c4_upper)
+
 
 
 def pregunta_07():
-    return tbl0.groupby('_c1')['_c2'].sum()
+    columnas_c1_c2_sum=tbl0.groupby('_c1')['_c2'].sum()
+    return columnas_c1_c2_sum
 
 
 def pregunta_08():
-    return tbl0['_c0']+tbl0['_c2']
+    tbl0['suma']=tbl0['_c0']+tbl0['_c2']
+    return tbl0
 
 
 def pregunta_09():
-    return tbl0['_c3'].map(lambda x: x.split('-')[0])
+    tbl0['year']=tbl0['_c3'].map(lambda x: x.split('-')[0])
+    return tbl0
 
 
 def pregunta_10():
